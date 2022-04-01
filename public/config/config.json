@@ -14,5 +14,5 @@
   "GAS_LIMIT": 285000,
   "MARKETPLACE": "NFTrade",
   "MARKETPLACE_LINK": "https://nftrade.com/",
-  "SHOW_BACKGROUND": true
+  "SHOW_BACKGROUND": false
 }
