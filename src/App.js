@@ -142,7 +142,7 @@ function App() {
       .then((receipt) => {
         console.log(receipt);
         setFeedback(
-          `Noice! The ${CONFIG.NFT_NAME} NFT is yours! go visit ${CONFIG.MARKETPLACE_LINK} to view it.`
+          `Nice! The ${CONFIG.NFT_NAME} NFT is yours! go visit ${CONFIG.MARKETPLACE_LINK} to view it.`
         );
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));
@@ -195,7 +195,7 @@ function App() {
       <s.Container
         flex={1}
         ai={"center"}
-        style={{ padding:18, backgroundColor: "var(--primary)" }}
+        style={{ padding:24, backgroundColor: "var(--primary)" }}
         image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
       >
         <StyledLogo style={{
@@ -217,6 +217,7 @@ function App() {
               borderRadius: 50,
               border: "2px solid var(--secondary)",
               boxShadow: "0px 4px 8px 2px rgba(0,0,0,0.5)",
+              padding: 30
             }}
           >
             <s.TextTitle
@@ -371,43 +372,67 @@ function App() {
           <s.SpacerLarge />
         </ResponsiveWrapper>
         <s.SpacerMedium />
-        <ResponsiveWrapper flex={1} test>
-          <s.Container
-            flex={2}
-            jc={"center"}
-            ai={"center"}
-            style={{
-              backgroundColor: "var(--accent)",
-              borderRadius: 50,
-              border: "2px solid var(--secondary)",
-              boxShadow: "0px 4px 8px 2px rgba(0,0,0,0.5)",
-            }}
-          >
-            <s.Container jc={"center"} ai={"center"} style={{ padding: 18, width: "70%" }}>
+        
+        <s.Container jc={"center"} ai={"center"} style={{ width: "80%" }}>
           <s.TextDescription
             style={{
               textAlign: "center",
               color: "var(--primary-text)",
             }}
           >
-            Please make sure you are connected to the right network (
+            
+            <s.TextDescription
+              style={{
+                textAlign: "center",
+                fontSize: 16,
+                fontWeight: "bold",
+                color: "var(--accent-text)",
+              }}
+            >
+               ⚠️ Please make sure you are connected to the right network (
             {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
             Once you make the purchase, you cannot undo this action.
+            <s.SpacerSmall />
+            The gas limit is currently set to {CONFIG.GAS_LIMIT} for the contract to
+            successfully mint your NFT. We recommend that you don't lower the
+            gas limit.
+            </s.TextDescription>
+            <s.SpacerSmall />
+            <hr />
           </s.TextDescription>
           <s.SpacerSmall />
+        </s.Container>
+
+        <s.Container jc={"center"} ai={"center"} style={{ width: "60%" }}>
           <s.TextDescription
             style={{
               textAlign: "center",
               color: "var(--primary-text)",
             }}
           >
-            We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
-            successfully mint your NFT. We recommend that you don't lower the
-            gas limit.
+            <s.SpacerSmall />
+            <s.TextTitle
+              style={{
+                textAlign: "center",
+                fontSize: 28,
+                fontWeight: "bold",
+                color: "var(--accent-text)",
+              }}
+            >
+              Featured on
+            </s.TextTitle>
+            <a target="_blank" href="https://nftcalendar.io/event/vybes-nft-one-million-mints/">
+              <StyledLogo style={{
+                borderRadius:50,
+                height:100,
+                width:100,
+              }}
+              
+              alt={"logo"} src={"/config/images/nftcalendar.png"} />
+            </a>
           </s.TextDescription>
-         </s.Container>
-         </s.Container>
-        </ResponsiveWrapper>
+          <s.SpacerSmall />
+        </s.Container>
         
         <s.Container jc={"center"} ai={"center"} style={{ width: "60%" }}>
           <s.TextDescription
