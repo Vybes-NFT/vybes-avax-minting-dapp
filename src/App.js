@@ -91,6 +91,12 @@ export const StyledLink = styled.a`
   text-decoration: none;
 `;
 
+export const CuteFont = styled.a`
+  font-size:48px;
+  font-family: 'sunnyspells';
+  text-decoration: none;
+`;
+
 function App() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
@@ -206,6 +212,10 @@ function App() {
           
           alt={"logo"} src={"/config/images/logo.png"}/>
         <s.SpacerSmall />
+        <CuteFont style={{ color: "whitesmoke" }}>
+                Vybes NFT
+        </CuteFont>
+        
         <ResponsiveWrapper flex={1} style={{ padding:18 }} test>
           <s.SpacerLarge />
           <s.Container
@@ -228,7 +238,13 @@ function App() {
                 color: "var(--accent-text)",
               }}
             >
-              {data.totalSupply} / {CONFIG.MAX_SUPPLY}
+              <CuteFont style={{ 
+                color: "whitesmoke", 
+                letterSpacing: 3
+                }}>
+                {data.totalSupply} / {CONFIG.MAX_SUPPLY}
+              </CuteFont>
+              
             </s.TextTitle>
             <s.TextDescription
               style={{
@@ -285,15 +301,23 @@ function App() {
                       Connect to the {CONFIG.NETWORK.NAME} network
                     </s.TextDescription>
                     <s.SpacerSmall />
-                    <StyledButton
-                      onClick={(e) => {
-                        e.preventDefault();
-                        dispatch(connect());
-                        getData();
-                      }}
-                    >
-                      CONNECT WALLET
-                    </StyledButton>
+                      <StyledButton
+                        onClick={(e) => {
+                          e.preventDefault();
+                          dispatch(connect());
+                          getData();
+                        }}
+                      >
+                        <CuteFont
+                         style={{
+                          fontSize:24,
+                        }}
+                        >
+                          CONNECT WALLET
+                        </CuteFont>
+                        
+                      </StyledButton>
+                    
                     {blockchain.errorMsg !== "" ? (
                       <>
                         <s.SpacerSmall />
